@@ -11,11 +11,26 @@
 
 
 #include "PaccerLib.h"
+#include <Arduino.h>
+#include <LiquidCrystal.h>
 
-int addTwoInts(int a, int b) {
-  return a + b;
+PaccerLib::PaccerLib(LiquidCrystal* lcd) {
+    this->lcd = lcd;
 }
 
-int addTwoDoubles(double a, double b) {
-    return a + b;
+void PaccerLib::printProgressively(String str, int delayMillis) {
+    for (int i = 0; i < str.length(); i++) {
+        lcd->write(str[i]);
+        delay(delayMillis);
+    }
+}
+
+void PaccerLib::printRandomized(String str, int minDelay, int maxDelay) {
+    for (int i = 0; i < str.length(); i++) {
+        lcd->write(str[i]);
+        int delayMillis = rand() % (maxDelay-minDelay+1) + minDelay;
+        Serial.print("Delay: ");
+        Serial.println(delayMillis);
+        delay(delayMillis);
+    }
 }
