@@ -22,23 +22,6 @@ PaccerCommon::PaccerCommon(PaccerOutput* output) {
     this->output = output;
 }
 
-/*void PaccerCommon::printProgressively(const String& str, int delayMillis) {
-    for (char i : str) {
-        output->write(i);
-        delay(delayMillis);
-    }
-}
-
-void PaccerCommon::printRandomized(const String& str, int minDelay, int maxDelay) {
-    for (char i : str) {
-        output->write(i);
-        int delayMillis = rand() % (maxDelay-minDelay+1) + minDelay;
-        Serial.print("Delay: ");
-        Serial.println(delayMillis);
-        delay(delayMillis);
-    }
-}*/
-
 void PaccerCommon::addScore(const int &amount) {
     setScore(max(_score + amount, 0));
 }
@@ -67,4 +50,8 @@ void PaccerCommon::input(InputType type) {
 
 void PaccerCommon::broadcast(const String &msg) {
     output->broadcast(msg);
+}
+
+void PaccerCommon::tick() {
+    Serial.println("COMMON TICK");
 }

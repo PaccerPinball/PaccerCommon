@@ -50,6 +50,8 @@ class PaccerCommon {
          * @param type the type of input, e.g. springStart
          */
         void input(InputType type);
+        /** Called from the main arduino sketch every loop() */
+        void tick();
 };
 
 #endif
