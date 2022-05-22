@@ -53,5 +53,5 @@ void PaccerCommon::broadcast(const String &msg) {
 }
 
 void PaccerCommon::tick() {
-    Serial.println("COMMON TICK");
+
 }
