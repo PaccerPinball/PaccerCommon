@@ -16,7 +16,6 @@
 #define PaccerCommon_H
 
 #include <Arduino.h>
-#include <LiquidCrystal.h>
 #include <PaccerOutput.h>
 
 // Inputs
@@ -27,7 +26,6 @@
 #define INPUT_SENSOR_4 4
 #define INPUT_SENSOR_5 5
 
-// TODO LiquidCrystal_I2C support
 class PaccerCommon {
     private:
         uint32_t _score{};

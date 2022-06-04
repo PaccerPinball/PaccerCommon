@@ -46,6 +46,7 @@ void PaccerCommon::input(const unsigned int& type) {
         case INPUT_SENSOR_3:
             addScore(1000);
             broadcast("NICE");
+            output->sound(SOUND_PLING);
             break;
         case INPUT_SENSOR_4:
             addScore(5000);
