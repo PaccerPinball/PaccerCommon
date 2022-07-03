@@ -40,6 +40,7 @@ void PaccerCommon::input(const unsigned int& type) {
         case INPUT_SPRING_START:
             resetScore();
             broadcast("UR BAD");
+            output->led(LED_OFF);
             break;
         case INPUT_PACMAN_START:
             break;
@@ -56,6 +57,7 @@ void PaccerCommon::input(const unsigned int& type) {
             break;
         case INPUT_PACMAN_INSIDE:
             addScore(100);
+            output->led(LED_PACMAN);
             break;
         default:
             serial("Unknown input type " + String(type));
