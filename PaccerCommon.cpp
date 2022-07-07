@@ -39,25 +39,20 @@ void PaccerCommon::input(const unsigned int& type) {
     switch (type) {
         case INPUT_SPRING_START:
             resetScore();
-            broadcast("UR BAD");
+            broadcast("GAMEOVER");
             output->led(LED_OFF);
             break;
-        case INPUT_PACMAN_START:
-            break;
-        case INPUT_SENSOR_3:
-            addScore(1000);
-            broadcast("NICE");
-            output->sound(SOUND_PLING);
-            break;
-        case INPUT_SENSOR_4:
-            addScore(5000);
-            break;
-        case INPUT_SENSOR_5:
-            addScore(1000000000);
-            break;
         case INPUT_PACMAN_INSIDE:
-            addScore(100);
+            addScore(1000);
+            broadcast("NICE JOB");
+            output->sound(SOUND_PLING);
             output->led(LED_PACMAN);
+            break;
+        case INPUT_HOLE_ONE:
+            addScore(300);
+            break;
+        case INPUT_HOLE_TWO:
+            addScore(100);
             break;
         default:
             serial("Unknown input type " + String(type));

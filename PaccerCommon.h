@@ -18,13 +18,12 @@
 #include <Arduino.h>
 #include <PaccerOutput.h>
 
-// Inputs
-#define INPUT_SPRING_START 0
-#define INPUT_PACMAN_START 1
-#define INPUT_PACMAN_INSIDE 2
-#define INPUT_SENSOR_3 3
-#define INPUT_SENSOR_4 4
-#define INPUT_SENSOR_5 5
+// Inputs - at the same time the pin numbers
+#define INPUT_SPRING_START 3
+#define INPUT_PACMAN_INSIDE 4
+#define INPUT_SLOW_PROPELLOR 8
+#define INPUT_HOLE_ONE 10
+#define INPUT_HOLE_TWO 11
 
 class PaccerCommon {
     private:
