@@ -29,6 +29,7 @@ class PaccerCommon {
     private:
         uint32_t _score{};
         PaccerOutput* output;
+        uint16_t servoTime{};
         /*void printProgressively(const String& str, int delayMillis);
         void printRandomized(const String& str, int minDelay, int maxDelay);*/
         void addScore(const uint32_t &amount);

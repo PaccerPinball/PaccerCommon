@@ -53,6 +53,8 @@ void PaccerCommon::input(const unsigned int& type) {
             break;
         case INPUT_HOLE_TWO:
             addScore(100);
+            output->servo(57);
+            servoTime = millis() + 5000;
             break;
         default:
             serial("Unknown input type " + String(type));
@@ -64,7 +66,10 @@ void PaccerCommon::broadcast(const String &msg) {
 }
 
 void PaccerCommon::tick() {
-
+    if (millis() > servoTime && servoTime != 0) {
+        servoTime = 0;
+        output->servo(20);
+    }
 }
 
 void PaccerCommon::serial(const String &msg) {
