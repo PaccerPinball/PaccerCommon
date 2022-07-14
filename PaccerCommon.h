@@ -22,14 +22,13 @@
 #define INPUT_SPRING_START 3
 #define INPUT_PACMAN_INSIDE 4
 #define INPUT_SLOW_PROPELLOR 8
-#define INPUT_HOLE_ONE 10
-#define INPUT_HOLE_TWO 11
+#define INPUT_HOLE_ONE 6 // left sensor
+#define INPUT_HOLE_TWO 42 // (todo) right sensor
 
 class PaccerCommon {
     private:
         uint32_t _score{};
         PaccerOutput* output;
-        uint16_t servoTime{};
         /*void printProgressively(const String& str, int delayMillis);
         void printRandomized(const String& str, int minDelay, int maxDelay);*/
         void addScore(const uint32_t &amount);

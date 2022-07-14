@@ -41,6 +41,7 @@ void PaccerCommon::input(const unsigned int& type) {
             resetScore();
             broadcast("GAMEOVER");
             output->led(LED_OFF);
+            output->sound(SOUND_PLONG);
             break;
         case INPUT_PACMAN_INSIDE:
             addScore(1000);
@@ -49,12 +50,12 @@ void PaccerCommon::input(const unsigned int& type) {
             output->led(LED_PACMAN);
             break;
         case INPUT_HOLE_ONE:
-            addScore(300);
+            addScore(200);
+            output->servo();
             break;
         case INPUT_HOLE_TWO:
-            addScore(100);
-            output->servo(57);
-            servoTime = millis() + 5000;
+            // TODO impl
+            addScore(300);
             break;
         default:
             serial("Unknown input type " + String(type));
@@ -66,10 +67,6 @@ void PaccerCommon::broadcast(const String &msg) {
 }
 
 void PaccerCommon::tick() {
-    if (millis() > servoTime && servoTime != 0) {
-        servoTime = 0;
-        output->servo(20);
-    }
 }
 
 void PaccerCommon::serial(const String &msg) {
